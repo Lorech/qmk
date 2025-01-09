@@ -1,6 +1,7 @@
 {
     "userspace_version": "1.1",
     "build_targets": [
-        ["crkbd", "lorech"]
+        ["crkbd", "lorech"],
+        ["planck/rev7", "lorech"]
     ]
 }
