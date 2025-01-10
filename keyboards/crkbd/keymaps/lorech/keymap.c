@@ -1,5 +1,13 @@
+/**
+ * Copyright 2019 @foostan, 2020 Drashna Jaelre, 2024-2025 Lauris Patriks Dedumets
+ *
+ * Licensed under the GNU General Public License, version 2 or later.
+ * See <https://www.gnu.org/licenses/> for details.
+ */
+
 #include QMK_KEYBOARD_H
 
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -50,3 +58,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
+// clang-format on
