@@ -1,4 +1,3 @@
----
 BasedOnStyle: Google
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: 'true'
@@ -15,7 +14,7 @@ BinPackArguments: 'true'
 BinPackParameters: 'true'
 ColumnLimit: '1000'
 IndentCaseLabels: 'true'
-IndentPPDirectives: AfterHash
+IndentPPDirectives: BeforeHash
 IndentWidth: '4'
 MaxEmptyLinesToKeep: '1'
 PointerAlignment: Right
@@ -26,5 +25,3 @@ SpaceInEmptyParentheses: 'false'
 SpacesBeforeTrailingComments: 1
 TabWidth: '4'
 UseTab: Never
-
-...
