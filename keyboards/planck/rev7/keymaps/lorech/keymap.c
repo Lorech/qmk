@@ -7,6 +7,10 @@
 
 #include QMK_KEYBOARD_H
 
+#ifdef CONSOLE_ENABLE
+    #include "print.h"
+#endif
+
 enum planck_layers { _QWERTY, _COLEMAK, _DVORAK, _LOWER, _RAISE, _PLOVER, _ADJUST };
 enum planck_keycodes { PLOVER = SAFE_RANGE, BACKLIT, EXT_PLV };
 
@@ -160,6 +164,24 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+// See: https://precondition.github.io/qmk-heatmap
+#ifdef CONSOLE_ENABLE
+    const bool is_combo = record->event.type == COMBO_EVENT;
+    // clang-format off
+    uprintf(
+        "0x%04X,%u,%u,%u,%u,0x%02X,0x%02X,%u\n",
+        keycode,
+        is_combo ? 254 : record->event.key.row,
+        is_combo ? 254 : record->event.key.col,
+        get_highest_layer(layer_state),
+        record->event.pressed,
+        get_mods(),
+        get_oneshot_mods(),
+        record->tap.count
+    );
+    // clang-format-on
+#endif
+
     switch (keycode) {
         case BACKLIT:
             if (record->event.pressed) {
