@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Standard Dvorak layout.
     [_DVORAK] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
-         KC_TAB,KC_QOUT,KC_COMM, KC_DOT,   KC_P,   KC_Y,   KC_F,   KC_G,   KC_C,   KC_R,   KC_L,KC_BSPC,
+         KC_TAB,KC_QUOT,KC_COMM, KC_DOT,   KC_P,   KC_Y,   KC_F,   KC_G,   KC_C,   KC_R,   KC_L,KC_BSPC,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
          KC_ESC,   KC_A,   KC_O,   KC_E,   KC_U,   KC_I,   KC_D,   KC_H,   KC_T,   KC_N,   KC_S,KC_SLSH,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
         _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______
     // `-----------------------------------------------------------------------------------------------'
-    )
+    ),
 
     // Compatibility layer with Plover's default mapping for stenography using QWERTY.
     // For more information, see https://www.openstenoproject.org/
