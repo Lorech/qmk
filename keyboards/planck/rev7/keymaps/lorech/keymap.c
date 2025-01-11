@@ -130,7 +130,7 @@ bool process_detected_host_os_kb(os_variant_t detected_os) {
     switch (detected_os) {
         case OS_IOS:
         case OS_MACOS:
-            // Do nothing - the default keymap is configured in this style.
+            keymap_config.swap_lalt_lgui = false;
             break;
         default:
             keymap_config.swap_lalt_lgui = true;
