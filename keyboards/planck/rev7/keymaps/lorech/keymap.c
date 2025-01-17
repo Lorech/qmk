@@ -5,23 +5,7 @@
  * See <https://www.gnu.org/licenses/> for details.
  */
 
-#include QMK_KEYBOARD_H
-
-#ifdef CONSOLE_ENABLE
-    #include "print.h"
-#endif
-
-enum planck_layers { _QWERTY, _COLEMAK, _DVORAK, _LOWER, _UPPER, _ADJUST, _PLOVER };
-enum planck_keycodes { PLOVER = SAFE_RANGE, EXT_PLV };
-
-#define LOWER MO(_LOWER)
-#define UPPER MO(_UPPER)
-
-#define QWERTY PDF(_QWERTY)
-#define COLEMAK PDF(_COLEMAK)
-#define DVORAK PDF(_DVORAK)
-
-#define OS_LSFT OSM(MOD_LSFT)
+#include "lorech.h"
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -40,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     // COLEMAK with the DH mod.
-    [_COLEMAK] = LAYOUT_planck_grid(
+    [_COLEMAK_DH] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
          KC_ESC,   KC_Q,   KC_W,   KC_F,   KC_P,   KC_B,   KC_J,   KC_L,   KC_U,   KC_Y,KC_SCLN,KC_BSPC,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -97,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ,-----------------------------------------------------------------------------------------------.
         _______,QK_BOOT,DB_TOGG,UG_TOGG,UG_NEXT,UG_HUEU,UG_HUED,UG_SATU,UG_SATD,UG_SPDU,UG_SPDD, KC_DEL,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-        _______, EE_CLR,MU_NEXT,  AU_ON, AU_OFF,AG_NORM,AG_SWAP, QWERTY,COLEMAK, DVORAK, PLOVER,_______,
+        _______, EE_CLR,MU_NEXT,  AU_ON, AU_OFF,AG_NORM,AG_SWAP, QWERTY,CLMAKDH, DVORAK, PLOVER,_______,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
         _______,AU_PREV,AU_NEXT,  MU_ON, MU_OFF,  MI_ON, MI_OFF,_______,_______,_______,_______,_______,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -148,25 +132,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, _LOWER, _UPPER, _ADJUST);
 }
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-// See: https://precondition.github.io/qmk-heatmap
-#ifdef CONSOLE_ENABLE
-    const bool is_combo = record->event.type == COMBO_EVENT;
-    // clang-format off
-    uprintf(
-        "0x%04X,%u,%u,%u,%u,0x%02X,0x%02X,%u\n",
-        keycode,
-        is_combo ? 254 : record->event.key.row,
-        is_combo ? 254 : record->event.key.col,
-        get_highest_layer(layer_state),
-        record->event.pressed,
-        get_mods(),
-        get_oneshot_mods(),
-        record->tap.count
-    );
-    // clang-format-on
-#endif
-
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case PLOVER:
             if (record->event.pressed) {
