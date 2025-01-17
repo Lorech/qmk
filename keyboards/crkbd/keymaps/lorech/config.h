@@ -7,6 +7,8 @@
 
 #pragma once
 
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+
 // Redefine the pin for split communication.
 // TODO: Make this conditional if I get a new set of MCUs.
 #undef SOFT_SERIAL_PIN
