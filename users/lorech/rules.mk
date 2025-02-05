@@ -1,1 +1,2 @@
-SRC += $(USER_PATH)/keyrecords/process_records.c
+SRC += $(USER_PATH)/lorech.c \
+       $(USER_PATH)/keyrecords/process_records.c

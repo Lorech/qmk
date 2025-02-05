@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
         OS_LSFT,   KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,KC_COMM, KC_DOT,KC_SLSH, KC_ENT,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-        _______,KC_LCTL,KC_LALT,KC_LGUI,  LOWER,_______, KC_SPC,  UPPER,KC_LEFT,KC_DOWN,  KC_UP,KC_RGHT
+        _______,KC_LCTL,KC_LGUI,KC_LALT,  LOWER,_______, KC_SPC,  UPPER,KC_LEFT,KC_DOWN,  KC_UP,KC_RGHT
     // `-----------------------------------------------------------------------------------------------'
     ),
 
@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
         OS_LSFT,   KC_Z,   KC_X,   KC_C,   KC_D,   KC_V,   KC_K,   KC_H,KC_COMM, KC_DOT,KC_SLSH, KC_ENT,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-        _______,KC_LCTL,KC_LALT,KC_LGUI,  LOWER,_______, KC_SPC,  UPPER,KC_LEFT,KC_DOWN,  KC_UP,KC_RGHT
+        _______,KC_LCTL,KC_LGUI,KC_LALT,  LOWER,_______, KC_SPC,  UPPER,KC_LEFT,KC_DOWN,  KC_UP,KC_RGHT
     // `-----------------------------------------------------------------------------------------------'
     ),
 
@@ -92,23 +92,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 /* clang-format on */
-
-bool process_detected_host_os_kb(os_variant_t detected_os) {
-    if (!process_detected_host_os_user(detected_os)) {
-        return false;
-    }
-
-    switch (detected_os) {
-        case OS_IOS:
-        case OS_MACOS:
-            keymap_config.swap_lalt_lgui = false;
-            break;
-        default:
-            keymap_config.swap_lalt_lgui = true;
-    }
-
-    return true;
-}
 
 #ifdef AUDIO_ENABLE
 float plover_song[][2]    = SONG(PLOVER_SOUND);
