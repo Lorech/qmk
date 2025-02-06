@@ -11,7 +11,9 @@
 
 #include "keyrecords/process_records.h"
 #include "layers.h"
-
 #ifdef AUDIO_ENABLE
     #include "audio/audio_config.h"
 #endif // !AUDIO_ENABLE
+#ifdef TAP_DANCE_ENABLE
+#include "keyrecords/tap_dance.h"
+#endif // !TAP_DANCE_ENABLE
