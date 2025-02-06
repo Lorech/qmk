@@ -7,11 +7,7 @@
 
 #pragma once
 
-#include QMK_KEYBOARD_H
+#include "song_list.h"
 
-#include "keyrecords/process_records.h"
-#include "layers.h"
-
-#ifdef AUDIO_ENABLE
-    #include "audio/audio_config.h"
-#endif // !AUDIO_ENABLE
+#define PLOVER_ENABLE  SONG(PLOVER_SOUND);
+#define PLOVER_DISABLE SONG(PLOVER_GOODBYE_SOUND);
