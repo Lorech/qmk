@@ -74,6 +74,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // clang-format-on
 #endif
 
+    // Only process at user level if it was not handled at keymap level.
+    // Doing so allows keymaps to override records as needed.
+    if (!process_record_keymap(keycode, record)) {
+        return false;
+    }
+
     return true;
 }
 
