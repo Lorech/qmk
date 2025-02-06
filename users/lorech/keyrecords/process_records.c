@@ -9,7 +9,12 @@
 #include "process_records.h"
 #ifdef CONSOLE_ENABLE
     #include "print.h"
-#endif
+#endif // !CONSOLE_ENABLE
+
+#ifdef AUDIO_ENABLE
+float plover_enable[][2]  = PLOVER_ENABLE;
+float plover_disable[][2] = PLOVER_DISABLE;
+#endif // !AUDIO_ENABLE
 
 /**
  * Pre-process a keycode at the keymap level.
@@ -78,6 +83,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // Doing so allows keymaps to override records as needed.
     if (!process_record_keymap(keycode, record)) {
         return false;
+    }
+
+    switch (keycode) {
+        case PLOVER:
+            if (record->event.pressed) {
+#ifdef AUDIO_ENABLE
+                stop_all_notes();
+                PLAY_SONG(plover_enable);
+#endif
+                layer_off(_UPPER);
+                layer_off(_LOWER);
+                layer_off(_ADJUST);
+                layer_on(_PLOVER);
+                if (!eeconfig_is_enabled()) {
+                    eeconfig_init();
+                }
+                keymap_config.raw  = eeconfig_read_keymap();
+                keymap_config.nkro = 1;
+                eeconfig_update_keymap(keymap_config.raw);
+            }
+            return false;
+            break;
+        case EXT_PLV:
+            if (record->event.pressed) {
+#ifdef AUDIO_ENABLE
+                PLAY_SONG(plover_disable);
+#endif
+                layer_off(_PLOVER);
+            }
+            return false;
+            break;
     }
 
     return true;
