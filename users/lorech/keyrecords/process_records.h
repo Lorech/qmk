@@ -7,6 +7,9 @@
 
 #pragma once
 
+#include "action.h"
+#include "keycodes.h"
+
 enum userspace_keycodes {
     PLOVER = QK_USER,
     EXT_PLV
@@ -16,8 +19,8 @@ bool pre_process_record_keymap(uint16_t keycode, keyrecord_t *record);
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 void post_process_record_keymap(uint16_t keycode, keyrecord_t *record);
 
-#define LOWER  MO(_LOWER)
-#define UPPER  MO(_UPPER)
+#define LOWER   TL_LOWR
+#define UPPER   TL_UPPR
 
 #define QWERTY  PDF(_QWERTY)
 #define COLEMAK PDF(_COLEMAK)
