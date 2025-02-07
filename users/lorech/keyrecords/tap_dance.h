@@ -9,11 +9,26 @@
 
 #include "process_tap_dance.h"
 
-#define TD_MTRK TD(TD_NEXT_PREV)
-
 enum tap_dance_actions {
     TD_NEXT_PREV,
+    TH_ESC_LGUI,
+    TH_QUOT_LCTL,
     TAP_DANCE_MAX,
 };
+
+typedef struct {
+    uint16_t tap;
+    uint16_t hold;
+    uint16_t held;
+} tap_dance_tap_hold_t;
+
+void tap_dance_tap_hold_finished(tap_dance_state_t *state, void *user_data);
+void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data);
+
+#define ACTION_TAP_DANCE_TAP_HOLD(tap, hold)                                        \
+    {                                                                               \
+        .fn        = {NULL, tap_dance_tap_hold_finished, tap_dance_tap_hold_reset}, \
+        .user_data = (void *)&((tap_dance_tap_hold_t){tap, hold, 0}),              \
+    }
 
 extern tap_dance_action_t tap_dance_actions[TAP_DANCE_MAX];

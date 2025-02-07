@@ -11,6 +11,10 @@
     #include "print.h"
 #endif // !CONSOLE_ENABLE
 
+#ifdef TAP_DANCE_ENABLE
+    #include "tap_dance.h"
+#endif // !TAP_DANCE_ENABLE
+
 #ifdef AUDIO_ENABLE
 float plover_enable[][2]  = PLOVER_ENABLE;
 float plover_disable[][2] = PLOVER_DISABLE;
@@ -85,6 +89,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
 
+#ifdef TAP_DANCE_ENABLE
+    tap_dance_action_t *action;
+#endif // !TAP_DANCE_ENABLE
+
     switch (keycode) {
         case PLOVER:
             if (record->event.pressed) {
@@ -114,6 +122,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
+#ifdef TAP_DANCE_ENABLE
+        case TH_ENAV:
+        case TH_QCTL:
+            action = &tap_dance_actions[QK_TAP_DANCE_GET_INDEX(keycode)];
+            if (!record->event.pressed && action->state.count && !action->state.finished) {
+                tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
+                tap_code16(tap_hold->tap);
+            }
+            break;
+#endif // !TAP_DANCE_ENABLE
     }
 
     return true;
