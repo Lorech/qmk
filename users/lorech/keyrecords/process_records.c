@@ -6,7 +6,7 @@
  */
 
 #include "lorech.h"
-#include "process_records.h"
+
 #ifdef CONSOLE_ENABLE
     #include "print.h"
 #endif // !CONSOLE_ENABLE
@@ -19,6 +19,9 @@
 float plover_enable[][2]  = PLOVER_ENABLE;
 float plover_disable[][2] = PLOVER_DISABLE;
 #endif // !AUDIO_ENABLE
+
+#include "mods.h"
+#include "process_records.h"
 
 /**
  * Pre-process a keycode at the keymap level.
@@ -128,7 +131,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             action = &tap_dance_actions[QK_TAP_DANCE_GET_INDEX(keycode)];
             if (!record->event.pressed && action->state.count && !action->state.finished) {
                 tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
-                tap_code16(tap_hold->tap);
+                mod_tap_code16(tap_hold->tap);
             }
             break;
 #endif // !TAP_DANCE_ENABLE
