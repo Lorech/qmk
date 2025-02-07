@@ -5,18 +5,20 @@
  * See <https://www.gnu.org/licenses/> for details.
  */
 
-#include "keycode_config.h"
 #ifdef TRI_LAYER_ENABLE
     #include "layers.h"
     #include "tri_layer.h"
 #endif // !TRI_LAYER_ENABLE
-#include "os_detection.h"
+#ifdef OS_DETECTION_ENABLE
+    #include "keycode_config.h"
+    #include "os_detection.h"
+#endif // !OS_DETECTION_ENABLE
 
-#ifdef TRI_LAYER_ENABLE
 void keyboard_pre_init_user() {
+#ifdef TRI_LAYER_ENABLE
     set_tri_layer_layers(_LOWER, _UPPER, _ADJUST);
-}
 #endif // !TRI_LAYER_ENABLE
+}
 
 #ifdef OS_DETECTION_ENABLE
 bool process_detected_host_os_user(os_variant_t detected_os) {
