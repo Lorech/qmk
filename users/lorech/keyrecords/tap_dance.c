@@ -5,8 +5,6 @@
  * See <https://www.gnu.org/licenses/> for details.
  */
 
-#include "quantum.h"
-
 #include "mods.h"
 #include "tap_dance.h"
 
@@ -27,9 +25,11 @@ void tap_dance_tap_hold_finished(tap_dance_state_t *state, void *user_data) {
 
     if (state->pressed) {
         if (state->count == 1
-#ifndef PERMISSIVE_HOLD
+#ifdef HOLD_ON_OTHER_KEY_PRESS
+            || state->interrupted
+#elif !defined(PERMISSIVE_HOLD)
             && !state->interrupted
-#endif // !PERMISSIVE_HOLD
+#endif
         ) {
             mod_register_code16(tap_hold->hold);
             tap_hold->held = tap_hold->hold;

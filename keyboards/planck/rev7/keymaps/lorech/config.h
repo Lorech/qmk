@@ -8,6 +8,7 @@
 #pragma once
 
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define HOLD_ON_OTHER_KEY_PRESS
 
 #ifdef AUDIO_ENABLE
     // #define STARTUP_SONG SONG(NO_SOUND)
