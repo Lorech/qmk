@@ -17,6 +17,8 @@ tap_dance_action_t tap_dance_actions[] = {
 /**
  * Handles a key press for a tap-hold keycode.
  *
+ * TODO: Add support for *PER_KEY hold modifiers
+ *
  * @param state The incoming information about the keycode press
  * @param user_data The outgoing information about the tap-hold status
  */
