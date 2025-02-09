@@ -5,7 +5,13 @@
  * See <https://www.gnu.org/licenses/> for details.
  */
 
+#include <stdint.h>
+
+#include "action.h"
+#include "action_tapping.h"
+
 #include "mods.h"
+#include "process_records.h"
 #include "tap_dance.h"
 
 tap_dance_action_t tap_dance_actions[] = {
@@ -13,6 +19,22 @@ tap_dance_action_t tap_dance_actions[] = {
     [TH_ESC_LGUI]  = ACTION_TAP_DANCE_TAP_HOLD(KC_ESC, KC_LGUI),
     [TH_QUOT_LCTL] = ACTION_TAP_DANCE_TAP_HOLD(KC_QUOT, KC_LCTL),
 };
+
+/**
+ * Returns the tapping term for each individual tap dance keycode.
+ *
+ * @param keycode The incoming keycode to perform the lookup for
+ * @param record The incoming information about the keycode press
+ * @return The tapping term for the keycode
+ */
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case TH_QCTL:
+            return 20;
+        default:
+            return TAPPING_TERM;
+    }
+}
 
 /**
  * Handles a key press for a tap-hold keycode.
