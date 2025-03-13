@@ -15,7 +15,7 @@
 #endif // !TRI_LAYER_ENABLE
 
 #ifdef TRI_LAYER_ENABLE
-void keyboard_pre_init_user() {
+void keyboard_pre_init_user(void) {
     set_tri_layer_layers(_LOWER, _UPPER, _ADJUST);
 }
 #endif // !TRI_LAYER_ENABLE

@@ -9,7 +9,8 @@
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT_split_3x6_3(
+
+    [_QWERTY] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------.                  ,-----------------------------------------------.
         KC_ESC,   KC_Q,   KC_W,   KC_F,   KC_P,   KC_B,                      KC_J,   KC_L,   KC_U,   KC_Y,KC_SCLN,KC_BSPC,
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
@@ -17,11 +18,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
        OS_LSFT,   KC_Z,   KC_X,   KC_C,   KC_D,   KC_V,                      KC_K,   KC_H,KC_COMM, KC_DOT,KC_SLSH,KC_LCTL,
     //|-------+-------+-------+-------+-------+-------+-------|  |-------+-------+-------+-------+-------+-------+-------|
-                                       KC_LGUI,  MO(1), KC_SPC,    KC_ENT,  MO(2),KC_RALT
+                                       KC_LGUI,  LOWER, KC_SPC,    KC_ENT,  UPPER,KC_RALT
                                     //`-----------------------'  `-----------------------'
     ),
 
-    [1] = LAYOUT_split_3x6_3(
+    [_LOWER] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------.                  ,-----------------------------------------------.
         KC_GRV,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                      KC_6,   KC_7,   KC_8,   KC_9,   KC_0,XXXXXXX,
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
@@ -29,11 +30,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
        XXXXXXX,XXXXXXX,XXXXXXX,KC_LCBR,KC_LBRC,KC_LPRN,                   KC_RPRN,KC_RBRC,KC_RCBR,XXXXXXX,XXXXXXX,XXXXXXX,
     //|-------+-------+-------+-------+-------+-------+-------|  |-------+-------+-------+-------+-------+-------+-------|
-                                       KC_LGUI,_______, KC_SPC,    KC_ENT,  MO(3),KC_RALT
+                                       KC_LGUI,_______, KC_SPC,    KC_ENT,_______,KC_RALT
                                     //`-----------------------'  `-----------------------'
     ),
 
-    [2] = LAYOUT_split_3x6_3(
+    [_UPPER] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------.                  ,-----------------------------------------------.
        KC_TILD,KC_EXLM,  KC_AT,KC_HASH, KC_DLR,KC_PERC,                   KC_CIRC,KC_AMPR,KC_ASTR,KC_PLUS, KC_EQL,XXXXXXX,
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
@@ -41,11 +42,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, KC_EQL,                   KC_UNDS,XXXXXXX,XXXXXXX,XXXXXXX,KC_BSLS,XXXXXXX,
     //|-------+-------+-------+-------+-------+-------+-------|  |-------+-------+-------+-------+-------+-------+-------|
-                                       KC_LGUI,  MO(3), KC_SPC,    KC_ENT,_______,KC_RALT
+                                       KC_LGUI,_______, KC_SPC,    KC_ENT,_______,KC_RALT
                                     //`-----------------------'  `-----------------------'
   ),
 
-    [3] = LAYOUT_split_3x6_3(
+    [_ADJUST] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------.                  ,-----------------------------------------------.
        QK_BOOT,KC_MPRV,KC_MPLY,KC_MNXT,XXXXXXX,XXXXXXX,                   XXXXXXX,XXXXXXX,XXXXXXX,KC_MUTE,KC_VOLD,KC_VOLU,
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
@@ -56,5 +57,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        KC_LGUI,_______, KC_SPC,    KC_ENT,_______,KC_RALT
                                     //`-----------------------'  `-----------------------'
   )
+
 };
 // clang-format on
