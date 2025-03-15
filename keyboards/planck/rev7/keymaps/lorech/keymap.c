@@ -65,13 +65,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Keyboard adjustment layer.
     [_ADJUST] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
-        QK_BOOT,AU_TOGG,MU_TOGG,MI_TOGG,_______,_______,_______,_______,_______,_______,_______, QWERTY,
+        QK_BOOT,AU_TOGG,MU_TOGG,MI_TOGG,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, QWERTY,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-        DB_TOGG,AU_PREV,MU_PREV,_______,_______,_______,_______,_______,_______,_______,_______,CLMAKDH,
+        DB_TOGG,AU_PREV,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,CLMAKDH,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-         EE_CLR,AU_NEXT,MU_NEXT,_______,_______,_______,_______,_______,_______,_______,_______, PLOVER,
+         EE_CLR,AU_NEXT,MU_NEXT,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, PLOVER,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-         QK_RBT,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______
+         QK_RBT,XXXXXXX,XXXXXXX,XXXXXXX,_______,XXXXXXX,XXXXXXX,_______,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX
     // `-----------------------------------------------------------------------------------------------'
     ),
 
