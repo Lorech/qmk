@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // The upper layer for additional keys.
     [_UPPER] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
-        KC_TILD,KC_LBRC,XXXXXXX,KC_ASTR,KC_AMPR,KC_RCBR,XXXXXXX,XXXXXXX,XXXXXXX,KC_PSCR, KC_INS, KC_DEL,
+        KC_TILD,KC_LBRC,XXXXXXX,KC_ASTR,KC_AMPR,KC_RBRC,XXXXXXX,XXXXXXX,XXXXXXX,KC_PSCR, KC_INS, KC_DEL,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
         _______,KC_LPRN,KC_HASH,  KC_AT,KC_EXLM,KC_RPRN,KC_CAPS,KC_LEFT,KC_DOWN,  KC_UP,KC_RGHT,KC_PIPE,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
