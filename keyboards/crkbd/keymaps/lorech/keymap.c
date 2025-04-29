@@ -50,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //,-----------------------------------------------.                  ,-----------------------------------------------.
        QK_BOOT,XXXXXXX,KC_MPRV,KC_MPLY,KC_MNXT,XXXXXXX,                   XXXXXXX,KC_VOLU,KC_VOLD,KC_MUTE,KC_VOLD,KC_VOLU,
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
-       XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+       XXXXXXX,RM_TOGG,RM_SATU,RM_HUEU,RM_VALU,XXXXXXX,                   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
     //|-------+-------+-------+-------+-------+-------|                  |-------+-------+-------+-------+-------+-------|
-       XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+       XXXXXXX,RM_NEXT,RM_SATD,RM_HUED,RM_VALD,XXXXXXX,                   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
     //|-------+-------+-------+-------+-------+-------+-------|  |-------+-------+-------+-------+-------+-------+-------|
                                        _______,_______,_______,   _______,_______,_______
                                     //`-----------------------'  `-----------------------'
