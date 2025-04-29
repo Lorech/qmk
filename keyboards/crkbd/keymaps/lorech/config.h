@@ -9,6 +9,9 @@
 
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
+#define LED_CAPS_LOCK_PIN 24
+#define LED_PIN_ON_STATE 0
+
 // Redefine the pin for split communication.
 // TODO: Make this conditional if I get a new set of MCUs.
 #undef SOFT_SERIAL_PIN
