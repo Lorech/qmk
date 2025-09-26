@@ -145,6 +145,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return true;
         case LALT_T(KC_R):
+            // Intentional rewrite of LALT to LALT on macOS.
+            // This actually swaps LGUI to LALT, as the incoming keycode respects
+            // keymap config, whereas (un)register_code16 does not.
             switch (detected_os) {
                 case OS_IOS:
                 case OS_MACOS:
@@ -193,6 +196,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return true;
         case RALT_T(KC_I):
+            // Intentional rewrite of RALT to RALT on macOS.
+            // This actually swaps RGUI to RALT, as the incoming keycode respects
+            // keymap config, whereas (un)register_code16 does not.
             switch (detected_os) {
                 case OS_IOS:
                 case OS_MACOS:
