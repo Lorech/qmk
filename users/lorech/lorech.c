@@ -26,9 +26,11 @@ bool process_detected_host_os_user(os_variant_t detected_os) {
         case OS_IOS:
         case OS_MACOS:
             keymap_config.swap_lalt_lgui = true;
+            keymap_config.swap_ralt_rgui = true;
             break;
         default:
             keymap_config.swap_lalt_lgui = false;
+            keymap_config.swap_ralt_rgui = false;
     }
 
     return true;
