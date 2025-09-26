@@ -6,12 +6,12 @@
  */
 
 #ifdef OS_DETECTION_ENABLE
-    #include "keycode_config.h"
-    #include "os_detection.h"
+#include "keycode_config.h"
+#include "os_detection.h"
 #endif // !OS_DETECTION_ENABLE
 #ifdef TRI_LAYER_ENABLE
-    #include "layers.h"
-    #include "tri_layer.h"
+#include "layers.h"
+#include "tri_layer.h"
 #endif // !TRI_LAYER_ENABLE
 
 #ifdef TRI_LAYER_ENABLE
