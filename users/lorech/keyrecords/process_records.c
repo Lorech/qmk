@@ -92,6 +92,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
 
+#ifdef OS_DETECTION_ENABLE
+    os_variant_t detected_os = detected_host_os();
+#endif // !OS_DETECTION_ENABLE
+
 #ifdef TAP_DANCE_ENABLE
     tap_dance_action_t *action;
 #endif // !TAP_DANCE_ENABLE
@@ -115,7 +119,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 eeconfig_update_keymap(&keymap_config);
             }
             return false;
-            break;
         case EXT_PLV:
             if (record->event.pressed) {
 #ifdef AUDIO_ENABLE
@@ -124,7 +127,104 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(_PLOVER);
             }
             return false;
-            break;
+#ifdef OS_DETECTION_ENABLE
+        case LGUI_T(KC_A):
+            switch (detected_os) {
+                case OS_IOS:
+                case OS_MACOS:
+                    if (!record->tap.count) {
+                        if (record->event.pressed) {
+                            register_code16(KC_LCTL);
+                        } else {
+                            unregister_code16(KC_LCTL);
+                        }
+                        return false;
+                    }
+                default:
+                    return true;
+            }
+            return true;
+        case LALT_T(KC_R):
+            switch (detected_os) {
+                case OS_IOS:
+                case OS_MACOS:
+                    if (!record->tap.count) {
+                        if (record->event.pressed) {
+                            register_code16(KC_LALT);
+                        } else {
+                            unregister_code16(KC_LALT);
+                        }
+                        return false;
+                    }
+                default:
+                    return true;
+            }
+            return true;
+        case LCTL_T(KC_S):
+            switch (detected_os) {
+                case OS_IOS:
+                case OS_MACOS:
+                    if (!record->tap.count) {
+                        if (record->event.pressed) {
+                            register_code16(KC_LGUI);
+                        } else {
+                            unregister_code16(KC_LGUI);
+                        }
+                        return false;
+                    }
+                default:
+                    return true;
+            }
+            return true;
+        case RCTL_T(KC_E):
+            switch (detected_os) {
+                case OS_IOS:
+                case OS_MACOS:
+                    if (!record->tap.count) {
+                        if (record->event.pressed) {
+                            register_code16(KC_RGUI);
+                        } else {
+                            unregister_code16(KC_RGUI);
+                        }
+                        return false;
+                    }
+                default:
+                    return true;
+            }
+            return true;
+        case RALT_T(KC_I):
+            switch (detected_os) {
+                case OS_IOS:
+                case OS_MACOS:
+                    if (!record->tap.count) {
+                        if (record->event.pressed) {
+                            register_code16(KC_RALT);
+                        } else {
+                            unregister_code16(KC_RALT);
+                        }
+                        return false;
+                    }
+                default:
+                    return true;
+            }
+            return true;
+        case RGUI_T(KC_O):
+            switch (detected_os) {
+                case OS_IOS:
+                case OS_MACOS:
+                    if (!record->tap.count) {
+                        if (record->event.pressed) {
+                            register_code16(KC_RCTL);
+                        } else {
+                            unregister_code16(KC_RCTL);
+                        }
+                        return false;
+                    }
+                default:
+                    return true;
+            }
+            return true;
+#endif // !OS_DETECTION_ENABLE
 #ifdef TAP_DANCE_ENABLE
         case TH_ENAV:
         case TH_QCTL:
@@ -133,7 +233,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
                 mod_tap_code16(tap_hold->tap);
             }
-            break;
+            return true;
 #endif // !TAP_DANCE_ENABLE
     }
 
