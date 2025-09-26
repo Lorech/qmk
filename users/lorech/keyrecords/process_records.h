@@ -31,7 +31,5 @@ void post_process_record_keymap(uint16_t keycode, keyrecord_t *record);
 #define UPPER   TL_UPPR
 
 #define QWERTY  PDF(_QWERTY)
-#define COLEMAK PDF(_COLEMAK)
 #define CLMAKDH PDF(_COLEMAK_DH)
-#define DVORAK  PDF(_DVORAK)
 #define PLOVER  PDF(_PLOVER)

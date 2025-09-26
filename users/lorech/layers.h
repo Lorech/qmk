@@ -9,9 +9,7 @@
 
 enum userspace_layers {
     _QWERTY,
-    _COLMAK,
     _COLEMAK_DH,
-    _DVORAK,
     _PLOVER,
     _LOWER,
     _UPPER,
