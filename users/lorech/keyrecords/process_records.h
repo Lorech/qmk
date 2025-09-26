@@ -41,7 +41,7 @@ void post_process_record_keymap(uint16_t keycode, keyrecord_t *record);
 #define QHR_F   LSFT_T(KC_F)
 #define QHR_J   RSFT_T(KC_J)
 #define QHR_K   RCTL_T(KC_K)
-#define QHR_L   LALT_T(KC_L)
+#define QHR_L   RALT_T(KC_L)
 #define QHR_SCL RGUI_T(KC_SCLN)
 
 // COLEMAK-DH home row mods
@@ -51,5 +51,5 @@ void post_process_record_keymap(uint16_t keycode, keyrecord_t *record);
 #define CHR_T LSFT_T(KC_T)
 #define CHR_N RSFT_T(KC_N)
 #define CHR_E RCTL_T(KC_E)
-#define CHR_I LALT_T(KC_I)
+#define CHR_I RALT_T(KC_I)
 #define CHR_O RGUI_T(KC_O)
