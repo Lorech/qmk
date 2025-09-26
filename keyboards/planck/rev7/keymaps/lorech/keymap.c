@@ -10,7 +10,6 @@
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    // Standard QWERTY layout.
     [_QWERTY] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
          KC_TAB,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,KC_BSPC,
@@ -23,7 +22,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // `-----------------------------------------------------------------------------------------------'
     ),
 
-    // COLEMAK with the DH mod.
     [_COLEMAK_DH] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
          KC_TAB,   KC_Q,   KC_W,   KC_F,   KC_P,   KC_B,   KC_J,   KC_L,   KC_U,   KC_Y,KC_SCLN,KC_BSPC,
@@ -36,7 +34,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // `-----------------------------------------------------------------------------------------------'
     ),
 
-    // The lower layer for additional keys.
     [_LOWER] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
          KC_GRV, KC_F12,  KC_F9,  KC_F8,  KC_F7,XXXXXXX,XXXXXXX,   KC_7,   KC_8,   KC_9, KC_INS, KC_DEL,
@@ -49,7 +46,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // `-----------------------------------------------------------------------------------------------'
     ),
 
-    // The upper layer for additional keys.
     [_UPPER] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
         KC_TILD,KC_LBRC,XXXXXXX,KC_ASTR,KC_AMPR,KC_RBRC,XXXXXXX,XXXXXXX,XXXXXXX,KC_PSCR, KC_INS, KC_DEL,
@@ -62,7 +58,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // `-----------------------------------------------------------------------------------------------'
     ),
 
-    // Keyboard adjustment layer.
     [_ADJUST] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
         QK_BOOT,AU_TOGG,MU_TOGG,MI_TOGG,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, QWERTY,
