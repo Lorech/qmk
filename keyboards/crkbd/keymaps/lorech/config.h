@@ -7,15 +7,14 @@
 
 #pragma once
 
+#define MASTER_RIGHT
+#undef SOFT_SERIAL_PIN
+#define SOFT_SERIAL_PIN B5
+
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
 #define LED_CAPS_LOCK_PIN 24
 #define LED_PIN_ON_STATE 0
-
-// Redefine the pin for split communication.
-// TODO: Make this conditional if I get a new set of MCUs.
-#undef SOFT_SERIAL_PIN
-#define SOFT_SERIAL_PIN B5
 
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
