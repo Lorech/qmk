@@ -96,10 +96,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     os_variant_t detected_os = detected_host_os();
 #endif // !OS_DETECTION_ENABLE
 
-#ifdef TAP_DANCE_ENABLE
-    tap_dance_action_t *action;
-#endif // !TAP_DANCE_ENABLE
-
     switch (keycode) {
         case PLOVER:
             if (record->event.pressed) {
@@ -231,16 +227,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return true;
 #endif // !OS_DETECTION_ENABLE
-#ifdef TAP_DANCE_ENABLE
-        case TH_ENAV:
-        case TH_QCTL:
-            action = &tap_dance_actions[QK_TAP_DANCE_GET_INDEX(keycode)];
-            if (!record->event.pressed && action->state.count && !action->state.finished) {
-                tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
-                mod_tap_code16(tap_hold->tap);
-            }
-            return true;
-#endif // !TAP_DANCE_ENABLE
     }
 
     return true;

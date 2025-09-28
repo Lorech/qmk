@@ -16,8 +16,6 @@
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_NEXT_PREV] = ACTION_TAP_DANCE_DOUBLE(KC_MNXT, KC_MPRV),
-    [TH_ESC_LGUI]  = ACTION_TAP_DANCE_TAP_HOLD(KC_ESC, KC_LGUI),
-    [TH_QUOT_LCTL] = ACTION_TAP_DANCE_TAP_HOLD(KC_QUOT, KC_LCTL),
 };
 
 /**
@@ -29,8 +27,6 @@ tap_dance_action_t tap_dance_actions[] = {
  */
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case TH_QCTL:
-            return 20;
         default:
             return TAPPING_TERM;
     }

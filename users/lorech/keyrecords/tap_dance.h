@@ -15,8 +15,6 @@
 
 enum tap_dance_actions {
     TD_NEXT_PREV,
-    TH_ESC_LGUI,
-    TH_QUOT_LCTL,
     TAP_DANCE_MAX,
 };
 

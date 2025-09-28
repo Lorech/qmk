@@ -23,8 +23,6 @@ void post_process_record_keymap(uint16_t keycode, keyrecord_t *record);
 
 #ifdef TAP_DANCE_ENABLE
     #define TD_MTRK TD(TD_NEXT_PREV)
-    #define TH_ENAV TD(TH_ESC_LGUI)
-    #define TH_QCTL TD(TH_QUOT_LCTL)
 #endif // !TAP_DANCE_ENABLE
 
 #define LOWER   TL_LOWR
