@@ -12,11 +12,11 @@
 #define SOFT_SERIAL_PIN B5
 
 #define LED_CAPS_LOCK_PIN 24
-#define LED_PIN_ON_STATE 0
+#define LED_PIN_ON_STATE  0
 
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
-    #define RGB_MATRIX_SLEEP // turn off effects when suspended
+    #define RGB_MATRIX_SLEEP      // turn off effects when suspended
     #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
     #define RGB_MATRIX_HUE_STEP 8
     #define RGB_MATRIX_SAT_STEP 8

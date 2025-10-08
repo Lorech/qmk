@@ -25,8 +25,8 @@ void post_process_record_keymap(uint16_t keycode, keyrecord_t *record);
     #define TD_MTRK TD(TD_NEXT_PREV)
 #endif // !TAP_DANCE_ENABLE
 
-#define LOWER   TL_LOWR
-#define UPPER   TL_UPPR
+#define LOWER TL_LOWR
+#define UPPER TL_UPPR
 
 #define QWERTY  PDF(_QWERTY)
 #define CLMAKDH PDF(_COLEMAK_DH)
