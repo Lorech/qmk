@@ -7,6 +7,9 @@
 
 #include "lorech.h"
 
+#include "mods.h"
+#include "process_records.h"
+
 #ifdef CONSOLE_ENABLE
     #include "print.h"
 #endif // !CONSOLE_ENABLE
@@ -16,12 +19,9 @@
 #endif // !TAP_DANCE_ENABLE
 
 #ifdef AUDIO_ENABLE
-float plover_enable[][2]  = PLOVER_ENABLE;
-float plover_disable[][2] = PLOVER_DISABLE;
+float plover_enable[][2]  = SONG(PLOVER_SOUND);
+float plover_disable[][2] = SONG(PLOVER_GOODBYE_SOUND);
 #endif // !AUDIO_ENABLE
-
-#include "mods.h"
-#include "process_records.h"
 
 /**
  * Pre-process a keycode at the keymap level.

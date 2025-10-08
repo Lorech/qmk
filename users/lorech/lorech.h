@@ -12,10 +12,6 @@
 #include "layers.h"
 #include "keyrecords/process_records.h"
 
-#ifdef AUDIO_ENABLE
-#include "audio/audio_config.h"
-#endif // !AUDIO_ENABLE
-
 #ifdef CAPS_WORD_ENABLE
 #include "keyrecords/caps_word.h"
 #endif // ! CAPS_WORD_ENABLE
