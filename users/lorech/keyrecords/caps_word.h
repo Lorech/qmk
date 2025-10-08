@@ -7,10 +7,6 @@
 
 #pragma once
 
-#ifdef CAPS_WORD_ENABLE
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-#endif // ! CAPS_WORD_ENABLE
+#include <stdint.h>
 
-#ifdef TAP_DANCE_ENABLE
-#define TAPPING_TERM 150
-#endif // !TAP_DANCE_ENABLE
+bool caps_word_press_user(uint16_t keycode);

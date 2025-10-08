@@ -16,6 +16,10 @@
 #include "audio/audio_config.h"
 #endif // !AUDIO_ENABLE
 
+#ifdef CAPS_WORD_ENABLE
+#include "keyrecords/caps_word.h"
+#endif // ! CAPS_WORD_ENABLE
+
 #ifdef TAP_DANCE_ENABLE
 #include "keyrecords/tap_dance.h"
 #endif // !TAP_DANCE_ENABLE

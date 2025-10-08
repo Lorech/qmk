@@ -7,8 +7,6 @@
 
 #pragma once
 
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-
 #ifdef AUDIO_ENABLE
     // #define STARTUP_SONG SONG(NO_SOUND)
     #define STARTUP_SONG SONG(PLANCK_SOUND)
