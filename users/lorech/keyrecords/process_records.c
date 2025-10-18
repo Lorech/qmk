@@ -25,47 +25,45 @@ float plover_disable[][2] = SONG(PLOVER_GOODBYE_SOUND);
 #endif // !AUDIO_ENABLE
 
 /**
- * Pre-process a keycode at the keymap level.
+ * Handle keymap-level pre-processing of tapped keys.
  *
  * @param keycode The keycode from the keymap matrix
- * @param record The full keyrecord structure
- * @return Whether the event was handled and should be sent to the host
+ * @param record The full event data structure
+ * @return If the keypress should continue to be processed
  */
 __attribute__((weak)) bool pre_process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
 /**
- * A hook into keycode processing, which enables keymap-level processing.
+ * Handle global pre-processing of tapped keys.
  *
  * @param keycode The keycode from the keymap matrix
  * @param record The full keyrecord structure
- * @return Whether the event was handled and should be sent to the host
+ * @return If the keypress should continue to be processed
  */
 bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
-    return pre_process_record_keymap(keycode, record);
+    if (!pre_process_record_keymap(keycode, record)) return false;
+    return true;
 }
 
 /**
- * Process a keycode as part of a specific keymap.
- *
- * Useful for processing which should not be global across all keyboards or
- * keymaps. For those, see `process_record_user`.
+ * Handle keymap-level processing of tapped keys.
  *
  * @param keycode The keycode from the keymap matrix
  * @param record The full keyrecord structure
- * @return Whether the event was handled and should be sent to the host
+ * @return If the keypress should continue to be processed
  */
 __attribute__((weak)) bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
 /**
- * Global processor of keycode events shared across all keymaps.
+ * Handle global processing of tapped keys.
  *
  * @param keycode The keycode from the keymap matrix
  * @param record The full keyrecord structure
- * @return Whether the event was handled and should be sent to the host
+ * @return If the keypress should continue to be processed
  */
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // Enable HID printing if console is enabled, formatted for QMK Heatmap.
@@ -234,7 +232,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 /**
- * Post-process a keycode at the keymap level.
+ * Handle keymap-level post-processing of tapped keys.
  *
  * @param keycode The keycode from the keymap matrix
  * @param record The full keyrecord structure
@@ -242,11 +240,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 __attribute__((weak)) void post_process_record_keymap(uint16_t keycode, keyrecord_t *record) {}
 
 /**
- * A hook into keycode processing, which enables keymap-level post-processing.
+ * Handle global post-processing of tapped keys.
  *
  * @param keycode The keycode from the keymap matrix
  * @param record The full keyrecord structure
  */
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // Handle custom keymap-level post-proccessing.
     post_process_record_keymap(keycode, record);
 }
