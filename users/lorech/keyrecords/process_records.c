@@ -7,9 +7,11 @@
 
 #include "lorech.h"
 
+#include "process_autocorrect.h"
+
 #include "mods.h"
-#include "user_song_list.h"
 #include "process_records.h"
+#include "user_song_list.h"
 
 #ifdef CONSOLE_ENABLE
 #include "print.h"
@@ -20,8 +22,12 @@
 #endif // !TAP_DANCE_ENABLE
 
 #ifdef AUDIO_ENABLE
-float plover_enable[][2]  = SONG(PLOVER_SOUND);
-float plover_disable[][2] = SONG(PLOVER_GOODBYE_SOUND);
+float plover_on_song[][2]  = SONG(PLOVER_SOUND);
+float plover_off_song[][2] = SONG(PLOVER_GOODBYE_SOUND);
+#ifdef AUTOCORRECT_ENABLE
+float autocorrect_on_song[][2]  = SONG(AUTOCORRECT_ON_SOUND);
+float autocorrect_off_song[][2] = SONG(AUTOCORRECT_OFF_SOUND);
+#endif // !AUTOCORRECT_ENABLE
 #endif // !AUDIO_ENABLE
 
 /**
@@ -100,7 +106,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
 #ifdef AUDIO_ENABLE
                 stop_all_notes();
-                PLAY_SONG(plover_enable);
+                PLAY_SONG(plover_on_song);
 #endif
                 layer_off(_UPPER);
                 layer_off(_LOWER);
@@ -117,7 +123,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case EXT_PLV:
             if (record->event.pressed) {
 #ifdef AUDIO_ENABLE
-                PLAY_SONG(plover_disable);
+                PLAY_SONG(plover_off_song);
 #endif
                 layer_off(_PLOVER);
             }
@@ -248,4 +254,27 @@ __attribute__((weak)) void post_process_record_keymap(uint16_t keycode, keyrecor
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
     // Handle custom keymap-level post-proccessing.
     post_process_record_keymap(keycode, record);
+
+    switch (keycode) {
+#ifdef AUTOCORRECT_ENABLE
+#ifdef AUDIO_ENABLE
+        case AC_TOGG:
+                stop_all_notes();
+                if (autocorrect_is_enabled()) {
+                    PLAY_SONG(autocorrect_on_song);
+                } else {
+                    PLAY_SONG(autocorrect_off_song);
+                }
+            break;
+        case AC_ON:
+                stop_all_notes();
+                PLAY_SONG(autocorrect_on_song);
+            break;
+        case AC_OFF:
+                stop_all_notes();
+                PLAY_SONG(autocorrect_off_song);
+            break;
+#endif // !AUDIO_ENABLE
+#endif // !AUTOCORRECT_ENABLE
+    }
 }

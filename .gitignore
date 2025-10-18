@@ -10,6 +10,9 @@
 *.bin
 *.uf2
 
+# Configuration files
+autocorrect.txt
+
 # clangd
 compile_commands.json
 .clangd/
