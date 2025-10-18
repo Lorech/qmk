@@ -60,11 +60,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_ADJUST] = LAYOUT_planck_grid(
     // ,-----------------------------------------------------------------------------------------------.
-        QK_BOOT,AU_TOGG,MU_TOGG,MI_TOGG,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, QWERTY,
+        QK_BOOT,AU_TOGG,MU_TOGG,MI_TOGG,AC_TOGG,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, QWERTY,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-        DB_TOGG,AU_PREV,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,CLMAKDH,
+        DB_TOGG,AU_PREV,XXXXXXX,XXXXXXX,  AC_ON,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,CLMAKDH,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-         EE_CLR,AU_NEXT,MU_NEXT,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, PLOVER,
+         EE_CLR,AU_NEXT,MU_NEXT,XXXXXXX, AC_OFF,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, PLOVER,
     // |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
          QK_RBT,XXXXXXX,XXXXXXX,XXXXXXX,_______,XXXXXXX,XXXXXXX,_______,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX
     // `-----------------------------------------------------------------------------------------------'
