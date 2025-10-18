@@ -10,7 +10,6 @@ AllowShortLoopsOnASingleLine: 'false'
 BinPackArguments: 'false'
 BinPackParameters: OnePerLine
 ColumnLimit: '0'
-IndentPPDirectives: BeforeHash
 IndentWidth: '4'
 PointerAlignment: Right
 ReflowComments: IndentOnly

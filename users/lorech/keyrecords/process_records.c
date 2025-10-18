@@ -8,14 +8,15 @@
 #include "lorech.h"
 
 #include "mods.h"
+#include "user_song_list.h"
 #include "process_records.h"
 
 #ifdef CONSOLE_ENABLE
-    #include "print.h"
+#include "print.h"
 #endif // !CONSOLE_ENABLE
 
 #ifdef TAP_DANCE_ENABLE
-    #include "tap_dance.h"
+#include "tap_dance.h"
 #endif // !TAP_DANCE_ENABLE
 
 #ifdef AUDIO_ENABLE
