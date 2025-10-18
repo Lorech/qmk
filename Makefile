@@ -14,3 +14,6 @@ endif
 
 %:
 	+$(MAKE) -C $(QMK_FIRMWARE_ROOT) $(MAKECMDGOALS) QMK_USERSPACE=$(QMK_USERSPACE)
+
+autocorrect:
+	@qmk generate-autocorrect-data autocorrect.txt | tail -n +4 > users/lorech/autocorrect_data.h
