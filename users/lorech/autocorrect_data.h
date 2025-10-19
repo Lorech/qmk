@@ -25,14 +25,16 @@
 
 #pragma once
 
-// Autocorrection dictionary (1 entries):
-//   :thier -> their
+// Autocorrection dictionary (2 entries):
+//   :lick: -> lick
+//   :licc: -> licc
 
-#define AUTOCORRECT_MIN_LENGTH 6 // ":thier"
-#define AUTOCORRECT_MAX_LENGTH 6 // ":thier"
-#define DICTIONARY_SIZE 12
+#define AUTOCORRECT_MIN_LENGTH 6 // ":lick:"
+#define AUTOCORRECT_MAX_LENGTH 6 // ":lick:"
+#define DICTIONARY_SIZE 23
 
 static const uint8_t autocorrect_data[DICTIONARY_SIZE] PROGMEM = {
-    0x15, 0x08, 0x0C, 0x0B, 0x17, 0x2C, 0x00, 0x82, 0x65, 0x69, 0x72, 0x00
+    0x2C, 0x00, 0x46, 0x09, 0x00, 0x0E, 0x10, 0x00, 0x00, 0x06, 0x0C, 0x0F, 0x2C, 0x00, 0x80, 0x00,
+    0x06, 0x0C, 0x0F, 0x2C, 0x00, 0x80, 0x00
 };
 

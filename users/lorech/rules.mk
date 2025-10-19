@@ -4,6 +4,10 @@ SRC += $(USER_PATH)/lorech.c \
        $(USER_PATH)/keyrecords/mods.c \
        $(USER_PATH)/keyrecords/process_records.c
 
+ifeq ($(strip $(AUTOCORRECT_ENABLE)), yes)
+    SRC += $(USER_PATH)/autocorrect.c
+endif
+
 ifeq ($(strip $(CAPS_WORD_ENABLE)), yes)
 SRC += $(USER_PATH)/keyrecords/caps_word.c
 endif
