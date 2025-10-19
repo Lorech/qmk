@@ -11,7 +11,10 @@
 
 #include "mods.h"
 #include "process_records.h"
+
+#ifdef AUDIO_ENABLE
 #include "user_song_list.h"
+#endif
 
 #ifdef CONSOLE_ENABLE
 #include "print.h"
